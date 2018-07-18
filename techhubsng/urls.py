@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include, handler404, handler500
+from frontend.views import index
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'^', include('frontend.urls')),
+    path(r'^admin/', admin.site.urls),
 ]
+# handler404 = error_404
+# handler500 = error_500
