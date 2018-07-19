@@ -4,5 +4,8 @@ from django.shortcuts import render
 
 
 def index(request):
-    text = {"text": "this is the home page" }
+    text = {
+        "title" : "Home",
+        "text": "this is the home page" 
+    }
     return render(request, "frontend/home.html", text)
