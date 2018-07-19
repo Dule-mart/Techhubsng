@@ -1,13 +1,39 @@
 {% load static from staticfiles %}
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
+    
     <head>
-        <title>Test</title>
+        <!--=============== basic  ===============-->
+        <meta charset="UTF-8">
+        <title>{{ title }} - TechHubsNG</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="robots" content="index, follow"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!--=============== css  ===============-->
+        <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/color.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+        <!--=============== favicons ===============-->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
     </head>
     <body>
+        <!--loader-->
+        <div class="loader-wrap">
+            <div class="pin"></div>
+            <div class="pulse"></div>
+        </div>
         {% block content %}
 
 
         {% endblock content %}
+        <!--=============== scripts  ===============-->     
+        
+        <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo&amp;libraries=places&amp;callback=initAutocomplete"></script>
     </body>
 
 
