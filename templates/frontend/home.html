@@ -1,5 +1,5 @@
 {% extends 'frontend/base.html' %}
-
+{% load static from staticfiles %}
 {% block content %}
     <!--section -->
     <section class="scroll-con-sec hero-section" data-scrollax-parent="true" id="sec1">
@@ -7,7 +7,7 @@
                 <div class="bg mob-bg" style="background-image: url(images/bg/29.jpg)"></div>
                 <div class="video-container">
                     <video autoplay  loop muted  class="bgvid">
-                        <source src="video/4.mp4" type="video/mp4">
+                        <source src="{% static 'video/4.mp4' %}" type="video/mp4">
                     </video>
                 </div>
                         <!--  
@@ -25,25 +25,21 @@
                 <div class="container">
                     <div class="intro-item fl-wrap">
                         <h2>We will help you to find all</h2>
-                        <h3>Find great places , hotels , restourants , shops.</h3>
+                        <h3>Find tech hubs in your city.</h3>
                     </div>
                     <div class="main-search-input-wrap">
                         <div class="main-search-input fl-wrap">
-                            <div class="main-search-input-item">
-                                <input type="text" placeholder="What are you looking for?" value=""/>
+                            
+                            <div class="main-search-input-item location" id="autocomplete-container">
+                                <input type="text" placeholder="Location" id="autocomplete-input" value=""/>
+                                <a href="#"><i class="fa fa-dot-circle-o"></i></a>
                             </div>
-                                        <div class="main-search-input-item location" id="autocomplete-container">
-                                            <input type="text" placeholder="Location" id="autocomplete-input" value=""/>
-                                            <a href="#"><i class="fa fa-dot-circle-o"></i></a>
-                                        </div>
                             <div class="main-search-input-item">
                                 <select data-placeholder="All Categories" class="chosen-select" >
                                     <option>All Categories</option>
-                                    <option>Shops</option>
-                                    <option>Hotels</option>
-                                    <option>Restaurants</option>
-                                    <option>Fitness</option>
-                                    <option>Events</option>
+                                    <option>Tech Hubs</option>
+                                    <option>Tech Labs</option>
+                                    
                                 </select>
                             </div>
                             <button class="main-search-button" onclick="window.location.href='listing.html'">Search</button>
