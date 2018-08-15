@@ -49,9 +49,17 @@
                         </div>
                         <button class="header-search-button" onclick="window.location.href='listing.html'">Search</button>
                     </div>
-                    <div class="show-search-button"><i class="fa fa-search"></i> <span>Search</span></div>
+                    <div class="show-search-button">
+                        <i class="fa fa-search"></i> 
+                        <span>Search</span>
+                    </div>
                     <a href="dashboard-add-listing.html" class="add-list">Add Listing <span><i class="fa fa-plus"></i></span></a>
+                    {% if user.is_authenticated %}
+                    
+                    {% else %}
                     <div class="show-reg-form modal-open"><i class="fa fa-sign-in"></i>Sign In</div>
+                    {% endif %}
+                    
                     <!-- nav-button-wrap-->
                     <div class="nav-button-wrap color-bg">
                         <div class="nav-button">
@@ -64,17 +72,7 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="#" class="act-link">Home <i class="fa fa-caret-down"></i></a>
-                                    <!--second level -->
-                                    <ul>
-                                        <li><a href="index-2.html">Parallax Image</a></li>
-                                        <li><a href="index2.html">Video</a></li>
-                                        <li><a href="index3.html">Map</a></li>
-                                        <li><a href="index4.html">Slideshow</a></li>
-                                        <li><a href="index5.html">Slider</a></li>
-                                        <li><a href="index6.html">Fullscreen Slider</a></li>
-                                    </ul>
-                                    <!--second level end-->
+                                    <a href="" class="act-link">Home</a>
                                 </li>
                                 <li>
                                     <a href="#">Listings <i class="fa fa-caret-down"></i></a>
@@ -244,6 +242,69 @@
                     </div>
                 </div>
             </footer>
+
+            <!--register form -->
+            <div class="main-register-wrap modal">
+                    <div class="main-overlay"></div>
+                    <div class="main-register-holder">
+                        <div class="main-register fl-wrap">
+                            <div class="close-reg"><i class="fa fa-times"></i></div>
+                            <h3>Sign In <span>City<strong>Book</strong></span></h3>
+                            <div class="soc-log fl-wrap">
+                                <p>For faster login or register use your social account.</p>
+                                <a href="#" class="facebook-log"><i class="fa fa-facebook-official"></i>Log in with Facebook</a>
+                                <a href="#" class="twitter-log"><i class="fa fa-twitter"></i> Log in with Twitter</a>
+                            </div>
+                            <div class="log-separator fl-wrap"><span>or</span></div>
+                            <div id="tabs-container">
+                                <ul class="tabs-menu">
+                                    <li class="current"><a href="#tab-1">Login</a></li>
+                                    <li><a href="#tab-2">Register</a></li>
+                                </ul>
+                                <div class="tab">
+                                    <div id="tab-1" class="tab-content">
+                                        <div class="custom-form">
+                                            <form method="post"  name="registerform">
+                                                <label>Username or Email Address * </label>
+                                                <input name="email" type="text"   onClick="this.select()" value="">
+                                                <label >Password * </label>
+                                                <input name="password" type="password"   onClick="this.select()" value="" >
+                                                <button type="submit"  class="log-submit-btn"><span>Log In</span></button>
+                                                <div class="clearfix"></div>
+                                                <div class="filter-tags">
+                                                    <input id="check-a" type="checkbox" name="check">
+                                                    <label for="check-a">Remember me</label>
+                                                </div>
+                                            </form>
+                                            <div class="lost_password">
+                                                <a href="#">Lost Your Password?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab">
+                                        <div id="tab-2" class="tab-content">
+                                            <div class="custom-form">
+                                                <form method="post"   name="registerform" class="main-register-form" id="main-register-form2">
+                                                    <label >First Name * </label>
+                                                    <input name="name" type="text"   onClick="this.select()" value="">
+                                                    <label>Second Name *</label>
+                                                    <input name="name2" type="text"  onClick="this.select()" value="">
+                                                    <label>Email Address *</label>
+                                                    <input name="email" type="text"  onClick="this.select()" value="">
+                                                    <label >Password *</label>
+                                                    <input name="password" type="password"   onClick="this.select()" value="" >
+                                                    <button type="submit"     class="log-submit-btn"  ><span>Register</span></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--register form end -->
+
             <a class="to-top"><i class="fa fa-angle-up"></i></a>
         </div>
         <!--=============== scripts  ===============-->     
@@ -251,6 +312,13 @@
         <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo&amp;libraries=places&amp;callback=initAutocomplete"></script>
+        <script>
+            $(function(){
+                $('.show-reg-form').click(function(){
+                    $('.main-register-wrap').show();
+                })
+            })
+        </script>
     </body>
 
 

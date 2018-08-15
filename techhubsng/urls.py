@@ -20,7 +20,8 @@ from frontend.views import index
 
 urlpatterns = [
     url(r'^', include('frontend.urls')),
-    path(r'^admin/', admin.site.urls),
+    path(r'^admin/$', admin.site.urls),
+    #path(r'^api/$', include(api.urls))
 ]
 # handler404 = error_404
 # handler500 = error_500

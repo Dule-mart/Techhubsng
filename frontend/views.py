@@ -10,6 +10,20 @@ def index(request):
     }
     return render(request, "frontend/home.html", text)
 
+
+def contact(request):
+    ctx = {
+        "title" : "Contact Us"
+    }
+    return render(request, 'frontend/contact.html', ctx)
+
+
+def about(request):
+    ctx = {
+        "title" : "About"
+    }
+    return render(request, 'frontend/about.html', ctx)
+
 def login(request):
     ctx = {
         "title": "login"
